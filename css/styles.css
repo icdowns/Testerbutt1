@@ -1,0 +1,180 @@
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+  --border: #1f2937;
+  --today: #22c55e;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 100%;
+  padding: 0 1rem 4rem;
+  margin: 2rem auto;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.controls button,
+.controls select {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  border-color: var(--accent);
+}
+
+.calendar {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.month {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.month-header button {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.month-header button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+
+.month-title {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: var(--muted);
+}
+
+.month-header button[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.month-panel[hidden] {
+  display: none;
+}
+
+.month-panel {
+  padding: 0 1rem 1rem;
+}
+
+.days-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5rem;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.day .date {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  background: rgba(96, 165, 250, 0.12);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.day .label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.day.today {
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.09);
+}
+
+.day.today .date {
+  background: rgba(34, 197, 94, 0.18);
+  color: var(--today);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* 💻 Desktop tweaks */
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 17px;
+  }
+
+  .container {
+    max-width: 700px;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .days-list {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
