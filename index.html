@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accordion Calendar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Accordion calendar <span id="yearLabel"></span></h1>
+    <p class="hint">Months are collapsible. Days are list items inside each month’s panel.</p>
+
+    <div class="controls">
+      <label for="yearSelect" class="visually-hidden">Choose year</label>
+      <select id="yearSelect" aria-label="Choose year"></select>
+      <button id="expandAll" type="button">Expand all</button>
+      <button id="collapseAll" type="button">Collapse all</button>
+    </div>
+
+    <div id="calendar" class="calendar" aria-label="Calendar by month"></div>
+  </div>
+
+  <script src="calendar.js"></script>
+</body>
+</html>
